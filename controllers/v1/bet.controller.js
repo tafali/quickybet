@@ -1,8 +1,10 @@
 const db = require('../../models')
 const bet = require('../../models/bet')
 
-const list = (_req, res) => {
-	res.json({status: 'SUCCESS', message: 'list'})
+const list = async (_req, res) => {	
+    const pays = await db.Bet.findAll()
+
+    return res.json(pays)
 }
 
 const activebet = async (_req, res) => {

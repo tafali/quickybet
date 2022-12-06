@@ -193,7 +193,8 @@
 				<div v-if="bet" class="container-fluid py-5">
 					<h1 class="display-5 fw-bold">{{bet.name}}</h1>
 					<p class="col-md-8 fs-4" v-html="bet.content"></p>
-					End time : <time :datetime="bet.endtime">{{bet.endtime}}</time>
+					End time : <time :datetime="bet.endtime">{{bet.endtime}}</time> <br>
+					Total amount : <span> {{total}}</span>
 				</div>
 				<div v-else class="container-fluid py-5">
 					There is no active bet
@@ -205,6 +206,26 @@
 					<div class="h-100 p-5 bg-light border rounded-3">
 						<strong v-html="opt.content"></strong>
 						<p>To bet this option, send 777 coins to <strong>{{opt.address}}</strong></p>
+
+						<div>
+							<strong>Payments</strong>
+							<table class="table">
+								<thead>
+									<tr>
+										<th>TXID p.amount</th>
+										<th>Amount</th>
+										<th>If you win</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr v-for="p in pay[opt.address].pays">
+										<td>{{p.txid}}</td>
+										<td>{{p.amount}}</td>
+										<td>{{(p.amount * (total * 98 / 100) / pay[opt.address].tot).toFixed(2)}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -227,11 +248,33 @@
 			mounted() {
 				fetch('/api/v1/bet')
 					.then((response) => response.json())
-					.then((data) => this.bet = data)
+					.then((data) => {
+						this.bet = data
+						if (this.bet){
+							this.bet.opts.forEach(e => {
+								fetch('/api/v1/payments/' + e.address)
+									.then((response) => response.json())
+									.then((data) => {
+										this.pay[e.address] = data
+
+										let tot = 0
+										data.forEach(e => {
+											tot += e.amount
+										})
+
+										this.total += tot
+										this.pay[e.address] = {pays:data, tot}
+
+									})
+							})
+						}
+					})				
 			},
 			data() {
 				return {
-					bet: null
+					bet: null,
+					pay: {},
+					total:0
 				}
 			}
 		})
