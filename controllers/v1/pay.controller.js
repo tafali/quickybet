@@ -4,7 +4,7 @@ const bet = require('../../models/bet')
 const getByAddress = async (req, res) => {
 	const pays = await db.Payment.findAll({
         where:{
-            address: req.params.address
+            addressto: req.params.address
         }
     })
 

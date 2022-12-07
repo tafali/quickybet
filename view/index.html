@@ -182,7 +182,7 @@
 							width="100%" height="100%" transform="translate(50 50)" stroke-width="0"
 							style="transition: all 0.3s ease 0s;"></path>
 					</svg>
-					<span class="fs-4">Quicky BET <sub class="fs-6 fw-lighter "><small>bet & run</small></sub> </span>
+					<span class="fs-4">Quicky BET <sub class="fs-6 fw-lighter "><small>bet just in five minutes ;)</small></sub> </span>
 				</a>
 				<button type="button" class="btn btn-link btn-sm text-dark text-decoration-none fs-6 fw-lighter position-absolute bottom-0 end-0" data-bs-toggle="modal" data-bs-target="#howis">
 					But how?
@@ -212,14 +212,14 @@
 							<table class="table">
 								<thead>
 									<tr>
-										<th>TXID p.amount</th>
+										<th>Address</th>
 										<th>Amount</th>
 										<th>If you win</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr v-for="p in pay[opt.address].pays">
-										<td>{{p.txid}}</td>
+										<td data-bs-toggle="tooltip" data-bs-placement="top" :title="p.txid" >{{p.addressfrom}}</td>
 										<td>{{p.amount}}</td>
 										<td>{{(p.amount * (total * 98 / 100) / pay[opt.address].tot).toFixed(2)}}</td>
 									</tr>
@@ -264,7 +264,6 @@
 
 										this.total += tot
 										this.pay[e.address] = {pays:data, tot}
-
 									})
 							})
 						}

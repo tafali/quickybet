@@ -28,7 +28,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.INTEGER
     },
-    address: {
+    addressto: {
+      allowNull: false,
+      type: DataTypes.STRING
+    },
+    addressfrom: {
       allowNull: false,
       type: DataTypes.STRING
     },

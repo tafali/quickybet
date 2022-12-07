@@ -45,7 +45,8 @@ module.exports = {
     await queryInterface.bulkInsert('Payments', [{
       betid: id,
       optid: oid1,
-      address: 'dasdsdasdasdasdsdsadadsdasdasda',
+      addressto: 'dasdsdasdasdasdsdsadadsdasdasda',
+      addressfrom: 'frfsvt565ne456546b546asdasda',
       txid: '3234rdrwerwr43w4r54rw4r44w4',
       amount: 102,
       createdAt: new Date(),
@@ -53,7 +54,8 @@ module.exports = {
     },{
       betid: id,
       optid: oid1,
-      address: 'dasdsdasdasdasdsdsadadsdasdasda',
+      addressto: 'dasdsdasdasdasdsdsadadsdasdasda',
+      addressfrom: 'frr344cftby6b6ebbyft67sdasda',
       txid: 'fdgı0d9gsd0gıs0fdgıs0fdg9ısfd0ıg',
       amount: 510,
       createdAt: new Date(),
@@ -61,7 +63,8 @@ module.exports = {
     },{
       betid: id,
       optid: oid2,
-      address: 'FSFDFSFSFWdasdasdsdsadadsdasdasda',
+      addressto: 'FSFDFSFSFWdasdasdsdsadadsdasdasda',
+      addressfrom: 'fr3er34er4fcr5f34f43adadsdasdasda',
       txid: 'asf9*0f9sd*fsd*0fsdf0sdf9s*d',
       amount: 50,
       createdAt: new Date(),
@@ -69,7 +72,8 @@ module.exports = {
     },{
       betid: id,
       optid: oid2,
-      address: 'FSFDFSFSFWdasdasdsdsadadsdasdasda',
+      addressto: 'FSFDFSFSFWdasdasdsdsadadsdasdasda',
+      addressfrom: 'fr4g4g44g4gsadadsdasdasda',
       txid: 'aıfofy6d8adsfasd87fds8fas8d7f8s',
       amount: 150,
       createdAt: new Date(),
@@ -77,7 +81,8 @@ module.exports = {
     },{
       betid: id,
       optid: oid2,
-      address: 'FSFDFSFSFWdasdasdsdsadadsdasdasda',
+      addressto: 'FSFDFSFSFWdasdasdsdsadadsdasdasda',
+      addressfrom: 'frsdfdsdsssdasdsdsadadsdasdasda',
       txid: '7f8d7f8dsfs8ad7fy7asdyf8asd7fy8asd7fy',
       amount: 250,
       createdAt: new Date(),
@@ -85,7 +90,8 @@ module.exports = {
     },{
       betid: id,
       optid: oid3,
-      address: '132123123sdasdasdsdsadadsdasdasda',
+      addressto: '132123123sdasdasdsdsadadsdasdasda',
+      addressfrom: 'fr132123123sdasdasdsdsadadsdasdasda',
       txid: 'adsd8d9asucvnvu9sdffs98fnsd8fsnd89fs9',
       amount: 125,
       createdAt: new Date(),
