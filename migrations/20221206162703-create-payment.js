@@ -31,7 +31,7 @@ module.exports = {
       },
       amount: {
         allowNull: false,
-        type: Sequelize.DECIMAL(36,18)
+        type: Sequelize.DECIMAL(36, 18)
       },
       createdAt: {
         allowNull: false,

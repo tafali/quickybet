@@ -42,7 +42,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     amount: {
       allowNull: false,
-      type: DataTypes.DECIMAL(36,18)
+      type: DataTypes.DECIMAL(36, 18)
     }
   }, {
     sequelize,

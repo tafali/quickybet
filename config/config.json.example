@@ -1,26 +1,23 @@
 {
-    "development": {
-      "username": "root",
-      "password": null,
-      "database": "qbdev",
-      "storage": "./db/qbdev.sqlite",
-      "host": "127.0.0.1",
-      "dialect": "sqlite"
-    },
-    "test": {
-      "username": "root",
-      "password": null,
-      "database": "qbtest",
-      "storage": "./db/qbtest.sqlite",
-      "host": "127.0.0.1",
-      "dialect": "sqlite"
-    },
-    "production": {
-      "username": "root",
-      "password": null,
-      "database": "qbprod",
-      "storage": "./db/qbprod.sqlite",
-      "host": "127.0.0.1",
-      "dialect": "sqlite"
-    }
+  "development": {
+    "username": "quickybetDev",
+    "password": null,
+    "database": "quickybetDev",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "quickybetTest",
+    "password": null,
+    "database": "quickybetTest",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "quickybet",
+    "password": null,
+    "database": "quickybet",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
   }
+}
