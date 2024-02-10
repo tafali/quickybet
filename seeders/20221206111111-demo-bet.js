@@ -56,7 +56,7 @@ module.exports = {
       optid: oid1,
       addressto: 'dasdsdasdasdasdsdsadadsdasdasda',
       addressfrom: 'frr344cftby6b6ebbyft67sdasda',
-      txid: 'fdgı0d9gsd0gıs0fdgıs0fdg9ısfd0ıg',
+      txid: 'fdgi0d9gsd0gis0fdgis0fdg9isfd0ig',
       amount: 510,
       createdAt: new Date(),
       updatedAt: new Date()
@@ -65,7 +65,7 @@ module.exports = {
       optid: oid2,
       addressto: 'FSFDFSFSFWdasdasdsdsadadsdasdasda',
       addressfrom: 'fr3er34er4fcr5f34f43adadsdasdasda',
-      txid: 'asf9*0f9sd*fsd*0fsdf0sdf9s*d',
+      txid: 'asf930f9sd3fsd30fsdf0sdf9s3d',
       amount: 50,
       createdAt: new Date(),
       updatedAt: new Date()
@@ -74,7 +74,7 @@ module.exports = {
       optid: oid2,
       addressto: 'FSFDFSFSFWdasdasdsdsadadsdasdasda',
       addressfrom: 'fr4g4g44g4gsadadsdasdasda',
-      txid: 'aıfofy6d8adsfasd87fds8fas8d7f8s',
+      txid: 'aifofy6d8adsfasd87fds8fas8d7f8s',
       amount: 150,
       createdAt: new Date(),
       updatedAt: new Date()
