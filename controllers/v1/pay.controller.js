@@ -8,6 +8,10 @@ const getByAddress = async (req, res) => {
         }
     })
 
+    for (index = 0, length = pays.length; index < length; ++index) {
+        pays[index].addressfrom = pays[index].addressfrom.replace(pays[index].addressfrom.substring(4,11), "*******")
+    }
+
     return res.json(pays)
 }
 

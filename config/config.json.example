@@ -4,20 +4,26 @@
     "password": null,
     "database": "quickybetDev",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "charset": "utf8",
+    "collate": "utf8_general_ci"
   },
   "test": {
     "username": "quickybetTest",
     "password": null,
     "database": "quickybetTest",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "charset": "utf8",
+    "collate": "utf8_general_ci"
   },
   "production": {
     "username": "quickybet",
     "password": null,
     "database": "quickybet",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "charset": "utf8",
+    "collate": "utf8_general_ci"
   }
 }

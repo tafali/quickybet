@@ -33,6 +33,12 @@ const add = async (req, res) => {
     const content = req.body.content
     const endtime = req.body.endtime
 
+    // TODO : name is not null
+    // TODO : content is not null
+    // TODO : endtime is not null
+    // TODO : opts is not null
+
+
 	let bet = await db.Bet.create({
         name,
         content,
