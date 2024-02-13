@@ -194,7 +194,7 @@
 					<h1 class="display-5 fw-bold">{{bet.name}}</h1>
 					<p class="col-md-8 fs-4" v-html="bet.content"></p>
 					End time : <time :datetime="bet.endtime">{{bet.endtime}}</time> <br>
-					Total amount : <span> {{total}}</span>
+					Total amount : <span> {{ formatPrice(total) }}</span>
 				</div>
 				<div v-else class="container-fluid py-5">
 					There is no active bet
@@ -220,7 +220,7 @@
 								<tbody>
 									<tr v-for="p in pay[opt.address].pays">
 										<td data-bs-toggle="tooltip" data-bs-placement="top" :title="p.txid" >{{p.addressfrom}}</td>
-										<td>{{p.amount}}</td>
+										<td>{{ formatPrice(p.amount) }}</td>
 										<td>{{(p.amount * (total * 98 / 100) / pay[opt.address].tot).toFixed(2)}}</td>
 									</tr>
 								</tbody>
@@ -259,10 +259,10 @@
 
 										let tot = 0
 										data.forEach(e => {
-											tot += e.amount
+											tot += e.amount*1
 										})
 
-										this.total += tot
+										this.total += tot*1
 										this.pay[e.address] = {pays:data, tot}
 									})
 							})
@@ -274,6 +274,12 @@
 					bet: null,
 					pay: {},
 					total:0
+				}
+			},
+			methods: {
+				formatPrice(value) {
+					let val = (value/1).toFixed(2).replace('.', ',')
+					return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
 				}
 			}
 		})
