@@ -11,7 +11,6 @@ const activebet = async (_req, res) => {
 	const bet = await db.Bet.findOne({
         where:{
             status: 0
-            //TODO: endtime: new Date
         }
     })
 
@@ -32,20 +31,45 @@ const add = async (req, res) => {
     const name = req.body.name
     const content = req.body.content
     const endtime = req.body.endtime
+    const opts = req.body.opts
 
-    // TODO : name is not null
-    // TODO : content is not null
-    // TODO : endtime is not null
-    // TODO : opts is not null
+    if(!name) {
+        res.json({status: 'ERROR', message: 'name is required'})
+        return
+    }
+    if(!content) {
+        res.json({status: 'ERROR', message: 'content is required'})
+        return
+    }
+    if(!endtime) {
+        res.json({status: 'ERROR', message: 'endtime is required'})
+        return
+    }
+    if(!opts) {
+        res.json({status: 'ERROR', message: 'opts is required'})
+        return
+    }
+    if(!Array.isArray(opts)){
+        res.json({status: 'ERROR', message: 'opts must be an array'})
+        return
+    }
 
+    for (let i = 0; i < opts.length; i++) {
+        if(!Object.hasOwn(opts[i], 'content')){
+            res.json({status: 'ERROR', message: 'opts must have content'})
+            return
+        }
+        if(!Object.hasOwn(opts[i], 'address')){
+            res.json({status: 'ERROR', message: 'opts must have address'})
+            return
+        }
+    }
 
 	let bet = await db.Bet.create({
         name,
         content,
         endtime: new Date(endtime)
     })
-
-    const opts = req.body.opts
 
     opts.forEach(async (element, ind) => {
         await db.Option.create({
