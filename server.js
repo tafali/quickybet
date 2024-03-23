@@ -4,6 +4,12 @@ const http = require('http')
 const port = process.env.PORT || 8080
 const server = http.createServer(app)
 
+const { Server } = require("socket.io");
+const io = new Server(server);
+io.on('connection', (socket) => {
+  console.log('a user connected');
+});
+
 server.listen(port)
 server.on('error', onError)
 

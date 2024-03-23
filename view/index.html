@@ -23,19 +23,22 @@
 				</div>
 				<div class="modal-body">
 					<h3>Nasıl oynarım?</h3>
-					<p>Sitede sadece bir tane bahis olur, ana sayfada görebilirsiniz. Tek yapmanız gereken bahsin altındaki seceneklerden kazanacagını düşündügüz seçenek
-					için verilen adrese, cüzdanınızdan istediginiz kadar 777 gondermek. Hepsi bu.</p>
+					<p>Sitede sadece bir tane bahis olur, ana sayfada görebilirsiniz. Tek yapmanız gereken bahsin
+						altındaki seceneklerden kazanacagını düşündügüz seçenek
+						için verilen adrese, cüzdanınızdan istediginiz kadar 777 gondermek. Hepsi bu.</p>
 
 					<h3>Nasıl hesaplanır</h3>
-					<p>Bahis icin butun seceneklerin adreslerine gonderilen butun koinler toplanır. Kasa bu toplamın %2 sini alır. Kalan toplam kazanan secenege gonderenler
-					arasında, gönderdikleri miktar ile orantılı olarak paylaştırılır.</p>
+					<p>Bahis icin butun seceneklerin adreslerine gonderilen butun koinler toplanır. Kasa bu toplamın %2
+						sini alır. Kalan toplam kazanan secenege gonderenler
+						arasında, gönderdikleri miktar ile orantılı olarak paylaştırılır.</p>
 
 					<p>
-					<strong>Örnek : </strong>
-					Asagidaki bahis icin, tablodaki adreslerden, karsilarindaki miktar kadar, her hayvana bahis yatırılmış olsun.
+						<strong>Örnek : </strong>
+						Asagidaki bahis icin, tablodaki adreslerden, karsilarindaki miktar kadar, her hayvana bahis
+						yatırılmış olsun.
 
 					<h6>Hangisi uçabilir?</h6>
-					<table class="table table-striped table-bordered table-sm">	
+					<table class="table table-striped table-bordered table-sm">
 						<thead class="text-center">
 							<tr>
 								<th colspan="2">Kedi</th>
@@ -103,7 +106,7 @@
 						</tbody>
 					</table>
 
-					<table class="table table-striped">	
+					<table class="table table-striped">
 						<tr>
 							<td>Toplam yatırılan</td>
 							<td>1600</td>
@@ -124,7 +127,7 @@
 					<br>
 					Kazanan <b>Kuş</b> <br>
 
-					<table class="table table-striped">	
+					<table class="table table-striped">
 						<tr>
 							<td>Kuş için yatırılan toplam</td>
 							<td>550</td>
@@ -135,7 +138,7 @@
 					<br>
 					<b>Ödüller</b> <br>
 
-					<table class="table table-striped">	
+					<table class="table table-striped">
 						<tr>
 							<td>7aa33...</td>
 							<td>570.18</td>
@@ -152,7 +155,7 @@
 							<td>50 * (1568 / 550)</td>
 						</tr>
 					</table>
-				</p>
+					</p>
 
 					<h3>Nasıl alırım</h3>
 					<p>Kazananların adreslerine, bahis icin koinin gonderildigi adrese, gönderilir.</p>
@@ -182,9 +185,12 @@
 							width="100%" height="100%" transform="translate(50 50)" stroke-width="0"
 							style="transition: all 0.3s ease 0s;"></path>
 					</svg>
-					<span class="fs-4">Quicky BET <sub class="fs-6 fw-lighter "><small>bet just in five minutes ;)</small></sub> </span>
+					<span class="fs-4">Quicky BET <sub class="fs-6 fw-lighter "><small>bet just in five minutes
+								;)</small></sub> </span>
 				</a>
-				<button type="button" class="btn btn-link btn-sm text-dark text-decoration-none fs-6 fw-lighter position-absolute bottom-0 end-0" data-bs-toggle="modal" data-bs-target="#howis">
+				<button type="button"
+					class="btn btn-link btn-sm text-dark text-decoration-none fs-6 fw-lighter position-absolute bottom-0 end-0"
+					data-bs-toggle="modal" data-bs-target="#howis">
 					But how?
 				</button>
 			</header>
@@ -219,7 +225,8 @@
 								</thead>
 								<tbody>
 									<tr v-for="p in pay[opt.address].pays">
-										<td data-bs-toggle="tooltip" data-bs-placement="top" :title="p.txid" >{{p.addressfrom}}</td>
+										<td data-bs-toggle="tooltip" data-bs-placement="top" :title="p.txid">
+											{{p.addressfrom}}</td>
 										<td>{{ formatPrice(p.amount) }}</td>
 										<td>{{(p.amount * (total * 98 / 100) / pay[opt.address].tot).toFixed(2)}}</td>
 									</tr>
@@ -250,7 +257,7 @@
 					.then((response) => response.json())
 					.then((data) => {
 						this.bet = data
-						if (this.bet){
+						if (this.bet) {
 							this.bet.opts.forEach(e => {
 								fetch('/api/v1/payments/' + e.address)
 									.then((response) => response.json())
@@ -259,26 +266,26 @@
 
 										let tot = 0
 										data.forEach(e => {
-											tot += e.amount*1
+											tot += e.amount * 1
 										})
 
-										this.total += tot*1
-										this.pay[e.address] = {pays:data, tot}
+										this.total += tot * 1
+										this.pay[e.address] = { pays: data, tot }
 									})
 							})
 						}
-					})				
+					})
 			},
 			data() {
 				return {
 					bet: null,
 					pay: {},
-					total:0
+					total: 0
 				}
 			},
 			methods: {
 				formatPrice(value) {
-					let val = (value/1).toFixed(2).replace('.', ',')
+					let val = (value / 1).toFixed(2).replace('.', ',')
 					return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
 				}
 			}
@@ -286,6 +293,20 @@
 
 		app.mount('#app')
 
+	</script>
+
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		io = io();
+		io.on('connection', (socket) => {
+			console.log('a user connected');
+			socket.on('disconnect', () => {
+				console.log('user disconnected');
+			});
+		});
+		io.on('Alert', function (msg) {
+			alert(msg)
+		});
 	</script>
 </body>
 
