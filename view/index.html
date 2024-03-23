@@ -251,7 +251,7 @@
 
 	<script type="module">
 
-		const app = Vue.createApp({
+		window.vapp = Vue.createApp({
 			mounted() {
 				fetch('/api/v1/bet')
 					.then((response) => response.json())
@@ -291,7 +291,7 @@
 			}
 		})
 
-		app.mount('#app')
+		window.vapp.mount('#app')
 
 	</script>
 
@@ -304,8 +304,8 @@
 				console.log('user disconnected');
 			});
 		});
-		io.on('Alert', function (msg) {
-			alert(msg)
+		io.on('pay', function (d) {
+			vapp._instance.data.pay[d.addressto].pays.push(d)
 		});
 	</script>
 </body>
